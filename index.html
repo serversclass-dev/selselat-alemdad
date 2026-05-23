@@ -1,0 +1,3366 @@
+    <!DOCTYPE html>
+    <html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta name="theme-color" content="#E11B22">
+        <meta name="description" content="شركة سلسلة الإمداد لصناعة البي في سي والألمونيوم - زليتن، ليبيا. تصنيع نوافذ وأبواب ومقاطع بأعلى معايير الجودة">
+        <meta name="keywords" content="سلسلة الإمداد, بي في سي, ألمونيوم, نوافذ, أبواب, زليتن, ليبيا, تصنيع">
+        <title>شركة سلسلة الإمداد — لصناعة البي في سي والألمونيوم</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+        <link rel="icon" type="image/png" href="logo.png">
+        <link rel="apple-touch-icon" href="logo.png">
+        <link rel="preload" as="image" href="logo.png" importance="high">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <!-- Reem Kufi (Arabic display) + IBM Plex Sans Arabic (body) + Inter (Latin) + JetBrains Mono (labels) -->
+        <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+        <style>
+            /* ============================================================
+            DESIGN TOKENS — Minimalist Modern × Brand Identity
+            ============================================================ */
+            :root {
+                /* Brand-adapted Color System */
+                --background: #FAFAFA;
+                --foreground: #111111;           /* Brand Black */
+                --muted: #F1F1F1;
+                --muted-foreground: #555555;     /* Brand Dark Gray */
+                --accent: #E11B22;               /* Brand Bright Red - PRIMARY ACCENT */
+                --accent-secondary: #FF3D44;     /* Lighter red for gradient endpoint */
+                --accent-foreground: #FFFFFF;
+                --border: #E6E6E6;               /* Brand Light Gray */
+                --card: #FFFFFF;
+                --ring: #E11B22;
+
+                /* Signature Gradient */
+                --gradient-accent: linear-gradient(135deg, #E11B22 0%, #FF3D44 100%);
+                --gradient-accent-horiz: linear-gradient(to right, #E11B22, #FF3D44);
+
+                /* Shadow System */
+                --shadow-sm: 0 1px 3px rgba(17, 17, 17, 0.06);
+                --shadow-md: 0 4px 6px rgba(17, 17, 17, 0.07);
+                --shadow-lg: 0 10px 15px rgba(17, 17, 17, 0.08);
+                --shadow-xl: 0 20px 25px rgba(17, 17, 17, 0.10);
+                --shadow-accent: 0 4px 14px rgba(225, 27, 34, 0.25);
+                --shadow-accent-lg: 0 8px 24px rgba(225, 27, 34, 0.35);
+
+                /* Typography */
+                --font-display: 'Reem Kufi', 'Calistoga', Georgia, serif;
+                --font-body: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+                --font-mono: 'JetBrains Mono', monospace;
+
+                /* Easing */
+                --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            /* ============================================================
+            RESET
+            ============================================================ */
+            *, *::before, *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            html {
+                scroll-behavior: smooth;
+                -webkit-text-size-adjust: 100%;
+            }
+
+            body {
+                font-family: var(--font-body);
+                font-weight: 400;
+                background: var(--background);
+                color: var(--foreground);
+                line-height: 1.7;
+                overflow-x: hidden;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            body.loaded {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: var(--font-display);
+                font-weight: 600;
+                letter-spacing: -0.01em;
+                line-height: 1.15;
+            }
+
+            a { text-decoration: none; color: inherit; }
+            ul { list-style: none; }
+            button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; color: inherit; }
+            img { display: block; max-width: 100%; height: auto; }
+
+            ::selection {
+                background: rgba(225, 27, 34, 0.20);
+                color: var(--foreground);
+            }
+
+            /* Focus rings */
+            a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 3px;
+                border-radius: 4px;
+            }
+
+            /* ============================================================
+            UTILITIES
+            ============================================================ */
+            .gradient-text {
+                background: var(--gradient-accent-horiz);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color: transparent;
+                display: inline-block;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+                position: relative;
+            }
+
+            /* Section Label (signature badge) */
+            .section-label {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                padding: 8px 18px;
+                border-radius: 999px;
+                border: 1px solid rgba(225, 27, 34, 0.30);
+                background: rgba(225, 27, 34, 0.06);
+                margin-bottom: 22px;
+            }
+
+            .section-label .dot {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: var(--accent);
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+            .section-label span {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                font-weight: 500;
+                color: var(--accent);
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+            }
+
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.3); opacity: 0.7; }
+            }
+
+            /* Dot pattern (for inverted sections) */
+            .dot-pattern {
+                position: absolute;
+                inset: 0;
+                background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+                background-size: 32px 32px;
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
+            /* Radial glow */
+            .radial-glow {
+                position: absolute;
+                width: 600px;
+                height: 600px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(225, 27, 34, 0.10) 0%, transparent 70%);
+                filter: blur(80px);
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            /* ============================================================
+            LOADER
+            ============================================================ */
+            .loader {
+                position: fixed;
+                inset: 0;
+                background: var(--foreground);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 99999;
+                transition: opacity 0.5s ease, visibility 0.5s ease;
+            }
+
+            .loader.hidden {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+            .loader-logo {
+                width: 100px;
+                height: 100px;
+                background: var(--card);
+                border-radius: 18px;
+                padding: 16px;
+                margin-bottom: 28px;
+                box-shadow: var(--shadow-accent-lg);
+            }
+
+            .loader-logo img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .loader-bar {
+                width: 200px;
+                height: 3px;
+                background: rgba(255, 255, 255, 0.10);
+                border-radius: 999px;
+                overflow: hidden;
+                margin-bottom: 22px;
+            }
+
+            .loader-bar-fill {
+                height: 100%;
+                width: 40%;
+                background: var(--gradient-accent-horiz);
+                border-radius: 999px;
+                animation: loaderSlide 1.4s ease-in-out infinite;
+            }
+
+            @keyframes loaderSlide {
+                0% { transform: translateX(150%); }
+                100% { transform: translateX(-250%); }
+            }
+
+            .loader-text {
+                font-family: var(--font-display);
+                font-size: 18px;
+                color: #FFFFFF;
+                font-weight: 600;
+                margin-bottom: 6px;
+            }
+
+            .loader-subtext {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.55);
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+            }
+
+            /* ============================================================
+            TOP BAR
+            ============================================================ */
+            .top-bar {
+                background: var(--foreground);
+                color: rgba(255, 255, 255, 0.85);
+                padding: 10px 0;
+                font-size: 13px;
+                position: relative;
+                z-index: 50;
+            }
+
+            .top-bar-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .top-bar-info {
+                display: flex;
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
+            .top-bar-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 500;
+            }
+
+            .top-bar-item i {
+                color: var(--accent);
+                font-size: 12px;
+            }
+
+            .top-bar-social {
+                display: flex;
+                gap: 8px;
+            }
+
+            .top-bar-social a {
+                width: 30px;
+                height: 30px;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.08);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                transition: all 0.2s var(--ease-out);
+            }
+
+            .top-bar-social a:hover {
+                background: var(--accent);
+                transform: translateY(-2px);
+            }
+
+            /* ============================================================
+            HEADER / NAV
+            ============================================================ */
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: rgba(250, 250, 250, 0.85);
+                backdrop-filter: saturate(180%) blur(14px);
+                -webkit-backdrop-filter: saturate(180%) blur(14px);
+                border-bottom: 1px solid transparent;
+                transition: all 0.3s var(--ease-out);
+            }
+
+            header.scrolled {
+                background: rgba(250, 250, 250, 0.95);
+                border-bottom-color: var(--border);
+                box-shadow: var(--shadow-sm);
+            }
+
+            nav {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 18px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                transition: opacity 0.2s ease;
+            }
+
+            .logo-container:hover {
+                opacity: 0.85;
+            }
+
+            .logo-mark {
+                width: 48px;
+                height: 48px;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 6px;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .logo-mark img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .logo-text h1 {
+                font-family: var(--font-display);
+                font-size: 17px;
+                font-weight: 600;
+                color: var(--foreground);
+                margin-bottom: 2px;
+                letter-spacing: -0.01em;
+            }
+
+            .logo-text span {
+                font-family: var(--font-mono);
+                font-size: 10px;
+                color: var(--muted-foreground);
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 4px;
+                align-items: center;
+            }
+
+            .nav-links a {
+                font-size: 14.5px;
+                font-weight: 500;
+                color: var(--muted-foreground);
+                padding: 9px 16px;
+                border-radius: 10px;
+                transition: all 0.2s var(--ease-out);
+                position: relative;
+            }
+
+            .nav-links a:hover {
+                color: var(--foreground);
+                background: var(--muted);
+            }
+
+            .nav-links a.active {
+                color: var(--accent);
+                background: rgba(225, 27, 34, 0.08);
+            }
+
+            .nav-cta {
+                margin-right: 12px;
+            }
+
+            .menu-toggle {
+                display: none;
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                background: var(--muted);
+                color: var(--foreground);
+                font-size: 18px;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s var(--ease-out);
+            }
+
+            .menu-toggle:hover {
+                background: var(--foreground);
+                color: var(--background);
+            }
+
+            /* ============================================================
+            BUTTONS
+            ============================================================ */
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 14px 26px;
+                font-family: var(--font-body);
+                font-size: 14.5px;
+                font-weight: 600;
+                border-radius: 12px;
+                transition: all 0.2s var(--ease-out);
+                cursor: pointer;
+                white-space: nowrap;
+                min-height: 48px;
+            }
+
+            .btn-primary {
+                background: var(--gradient-accent-horiz);
+                color: var(--accent-foreground);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-accent-lg);
+                filter: brightness(1.05);
+            }
+
+            .btn-primary:active {
+                transform: translateY(0) scale(0.98);
+            }
+
+            .btn-primary .arrow {
+                transition: transform 0.2s var(--ease-out);
+            }
+
+            .btn-primary:hover .arrow {
+                transform: translateX(-4px); /* RTL: left */
+            }
+
+            .btn-secondary {
+                background: transparent;
+                color: var(--foreground);
+                border: 1px solid var(--border);
+            }
+
+            .btn-secondary:hover {
+                background: var(--muted);
+                border-color: rgba(225, 27, 34, 0.3);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .btn-sm {
+                padding: 10px 18px;
+                font-size: 13.5px;
+                min-height: 40px;
+            }
+
+            /* ============================================================
+            HERO
+            ============================================================ */
+            .hero {
+                position: relative;
+                padding: 80px 24px 120px;
+                overflow: hidden;
+            }
+
+            .hero .radial-glow.glow-1 {
+                top: -200px;
+                right: -200px;
+            }
+
+            .hero .radial-glow.glow-2 {
+                bottom: -250px;
+                left: -250px;
+                background: radial-gradient(circle, rgba(225, 27, 34, 0.06) 0%, transparent 70%);
+            }
+
+            .hero-grid {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 60px;
+                align-items: center;
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero-content {
+                animation: fadeUp 0.9s var(--ease-out) both;
+            }
+
+            @keyframes fadeUp {
+                from { opacity: 0; transform: translateY(28px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .hero-title {
+                font-family: var(--font-display);
+                font-size: clamp(2.5rem, 5.5vw, 4.75rem);
+                font-weight: 600;
+                color: var(--foreground);
+                line-height: 1.08;
+                letter-spacing: -0.02em;
+                margin-bottom: 24px;
+            }
+
+            .hero-title .highlight {
+                position: relative;
+                display: inline-block;
+            }
+
+            .hero-title .highlight::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                left: 0;
+                bottom: -4px;
+                height: 12px;
+                background: linear-gradient(to right, rgba(225, 27, 34, 0.18), rgba(255, 61, 68, 0.10));
+                border-radius: 4px;
+                z-index: -1;
+            }
+
+            .hero-description {
+                font-size: 17px;
+                color: var(--muted-foreground);
+                line-height: 1.75;
+                margin-bottom: 36px;
+                max-width: 540px;
+            }
+
+            .hero-buttons {
+                display: flex;
+                gap: 14px;
+                flex-wrap: wrap;
+                margin-bottom: 48px;
+            }
+
+            .hero-meta {
+                display: flex;
+                gap: 36px;
+                flex-wrap: wrap;
+                padding-top: 32px;
+                border-top: 1px solid var(--border);
+            }
+
+            .hero-meta-item .num {
+                font-family: var(--font-display);
+                font-size: 28px;
+                font-weight: 600;
+                color: var(--foreground);
+                line-height: 1;
+                margin-bottom: 6px;
+            }
+
+            .hero-meta-item .num .gradient-text {
+                font-family: var(--font-display);
+            }
+
+            .hero-meta-item .label {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                color: var(--muted-foreground);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+            }
+
+            /* Hero Visual — Animated Geometric Composition */
+            .hero-visual {
+                position: relative;
+                aspect-ratio: 1;
+                max-width: 520px;
+                margin: 0 auto;
+                animation: fadeUp 1.1s var(--ease-out) 0.15s both;
+            }
+
+            .hero-visual-bg {
+                position: absolute;
+                inset: 0;
+                border-radius: 32px;
+                background:
+                    radial-gradient(circle at 30% 30%, rgba(225, 27, 34, 0.08), transparent 60%),
+                    linear-gradient(135deg, var(--muted) 0%, var(--card) 100%);
+                border: 1px solid var(--border);
+            }
+
+            .hero-ring {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 78%;
+                height: 78%;
+                border: 1.5px dashed rgba(225, 27, 34, 0.30);
+                border-radius: 50%;
+                animation: rotate 60s linear infinite;
+            }
+
+            @keyframes rotate {
+                from { transform: translate(-50%, -50%) rotate(0deg); }
+                to { transform: translate(-50%, -50%) rotate(360deg); }
+            }
+
+            .hero-corner-accent {
+                position: absolute;
+                top: 28px;
+                right: 28px;
+                width: 64px;
+                height: 64px;
+                background: var(--gradient-accent);
+                border-radius: 14px;
+                box-shadow: var(--shadow-accent-lg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #FFF;
+                font-size: 26px;
+                z-index: 3;
+            }
+
+            .hero-dot-grid {
+                position: absolute;
+                bottom: 36px;
+                left: 36px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                z-index: 2;
+            }
+
+            .hero-dot-grid span {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--accent);
+                opacity: 0.6;
+            }
+
+            .hero-dot-grid span:nth-child(odd) {
+                opacity: 0.25;
+            }
+
+            /* Floating cards */
+            .floating-card {
+                position: absolute;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                padding: 16px 18px;
+                box-shadow: var(--shadow-lg);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                z-index: 4;
+            }
+
+            .floating-card .icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+                background: var(--gradient-accent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #FFF;
+                font-size: 17px;
+                flex-shrink: 0;
+            }
+
+            .floating-card .text .label {
+                font-family: var(--font-mono);
+                font-size: 10px;
+                color: var(--muted-foreground);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: 2px;
+            }
+
+            .floating-card .text .value {
+                font-family: var(--font-display);
+                font-size: 15px;
+                font-weight: 600;
+                color: var(--foreground);
+            }
+
+            .floating-card.fc-1 {
+                top: 18%;
+                right: -8%;
+                animation: float1 5s ease-in-out infinite;
+            }
+
+            .floating-card.fc-2 {
+                bottom: 22%;
+                left: -10%;
+                animation: float2 4.5s ease-in-out infinite;
+            }
+
+            .floating-card.fc-3 {
+                top: 52%;
+                right: 8%;
+                animation: float1 4s ease-in-out infinite 0.5s;
+            }
+
+            @keyframes float1 {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+
+            @keyframes float2 {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(10px); }
+            }
+
+            /* Central icon orb */
+            .hero-orb {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 200px;
+                height: 200px;
+                background: var(--foreground);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #FFF;
+                font-size: 78px;
+                box-shadow: 0 25px 50px rgba(17, 17, 17, 0.25);
+                z-index: 2;
+            }
+
+            .hero-orb::before {
+                content: '';
+                position: absolute;
+                inset: -14px;
+                border-radius: 50%;
+                border: 1px solid rgba(225, 27, 34, 0.15);
+            }
+
+            /* ============================================================
+            SECTION COMMON
+            ============================================================ */
+            section {
+                position: relative;
+                padding: 110px 24px;
+            }
+
+            .section-header {
+                max-width: 720px;
+                margin: 0 auto 70px;
+                text-align: center;
+                position: relative;
+                z-index: 2;
+            }
+
+            .section-header.align-start {
+                text-align: right;
+                margin-right: 0;
+            }
+
+            .section-title {
+                font-family: var(--font-display);
+                font-size: clamp(2rem, 4vw, 3.25rem);
+                font-weight: 600;
+                color: var(--foreground);
+                line-height: 1.15;
+                letter-spacing: -0.015em;
+                margin-bottom: 18px;
+            }
+
+            .section-description {
+                font-size: 16.5px;
+                color: var(--muted-foreground);
+                line-height: 1.75;
+            }
+
+            /* Fade-in on scroll */
+            .reveal {
+                opacity: 0;
+                transform: translateY(28px);
+                transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+            }
+
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* ============================================================
+            FEATURES
+            ============================================================ */
+            .features {
+                background: var(--background);
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+                max-width: 1200px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 2;
+            }
+
+            .feature-card {
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 18px;
+                padding: 32px 28px;
+                transition: all 0.3s var(--ease-out);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .feature-card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, rgba(225, 27, 34, 0.03), transparent 60%);
+                opacity: 0;
+                transition: opacity 0.3s var(--ease-out);
+                pointer-events: none;
+            }
+
+            .feature-card:hover {
+                border-color: rgba(225, 27, 34, 0.25);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-4px);
+            }
+
+            .feature-card:hover::before {
+                opacity: 1;
+            }
+
+            .feature-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 14px;
+                background: var(--gradient-accent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #FFF;
+                font-size: 22px;
+                margin-bottom: 22px;
+                box-shadow: var(--shadow-accent);
+                transition: transform 0.3s var(--ease-out);
+            }
+
+            .feature-card:hover .feature-icon {
+                transform: scale(1.08) rotate(-4deg);
+            }
+
+            .feature-card h3 {
+                font-family: var(--font-display);
+                font-size: 19px;
+                font-weight: 600;
+                color: var(--foreground);
+                margin-bottom: 10px;
+                letter-spacing: -0.01em;
+            }
+
+            .feature-card p {
+                font-size: 14.5px;
+                color: var(--muted-foreground);
+                line-height: 1.7;
+            }
+
+            /* Featured card with gradient border */
+            .feature-card.featured {
+                background: var(--gradient-accent);
+                padding: 2px;
+            }
+
+            .feature-card.featured > .inner {
+                background: var(--card);
+                border-radius: 16px;
+                padding: 30px 26px;
+                height: 100%;
+            }
+
+            /* ============================================================
+            ABOUT
+            ============================================================ */
+            .about {
+                background: var(--background);
+                position: relative;
+            }
+
+            .about .radial-glow {
+                top: 50%;
+                right: -300px;
+                transform: translateY(-50%);
+            }
+
+            .about-grid {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 70px;
+                align-items: center;
+                position: relative;
+                z-index: 2;
+            }
+
+            .about-content .section-title {
+                text-align: right;
+                margin-bottom: 22px;
+            }
+
+            .about-content > p {
+                font-size: 16.5px;
+                color: var(--muted-foreground);
+                line-height: 1.8;
+                margin-bottom: 18px;
+            }
+
+            .about-checks {
+                display: grid;
+                gap: 14px;
+                margin-top: 32px;
+            }
+
+            .about-check {
+                display: flex;
+                gap: 14px;
+                align-items: flex-start;
+            }
+
+            .about-check-icon {
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+                border-radius: 8px;
+                background: rgba(225, 27, 34, 0.10);
+                color: var(--accent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 13px;
+            }
+
+            .about-check h4 {
+                font-family: var(--font-display);
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--foreground);
+                margin-bottom: 4px;
+            }
+
+            .about-check p {
+                font-size: 14px;
+                color: var(--muted-foreground);
+                line-height: 1.6;
+            }
+
+            /* About Visual */
+            .about-visual {
+                position: relative;
+                aspect-ratio: 4/5;
+                border-radius: 32px;
+                overflow: hidden;
+                background: var(--foreground);
+                box-shadow: var(--shadow-xl);
+            }
+
+            .about-visual .dot-pattern {
+                opacity: 0.6;
+            }
+
+            .about-visual-inner {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 40px;
+                color: #FFF;
+            }
+
+            .about-visual-icon {
+                width: 110px;
+                height: 110px;
+                border-radius: 24px;
+                background: var(--gradient-accent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 50px;
+                margin-bottom: 28px;
+                box-shadow: var(--shadow-accent-lg);
+            }
+
+            .about-visual h3 {
+                font-family: var(--font-display);
+                font-size: 26px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                letter-spacing: -0.01em;
+            }
+
+            .about-visual p {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.65);
+                max-width: 280px;
+                line-height: 1.7;
+            }
+
+            .about-visual-corner {
+                position: absolute;
+                bottom: 28px;
+                right: 28px;
+                width: 56px;
+                height: 56px;
+                border-radius: 14px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--accent);
+                font-size: 22px;
+            }
+
+            .about-visual-tl {
+                position: absolute;
+                top: 28px;
+                left: 28px;
+                font-family: var(--font-mono);
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.55);
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .about-visual-tl::before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--accent);
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+            /* ============================================================
+            SERVICES / PRODUCTS
+            ============================================================ */
+            .services {
+                background: var(--muted);
+                position: relative;
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+                gap: 22px;
+                max-width: 1200px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 2;
+            }
+
+            .service-card {
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                overflow: hidden;
+                transition: all 0.3s var(--ease-out);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .service-card:hover {
+                transform: translateY(-6px);
+                box-shadow: var(--shadow-xl);
+                border-color: rgba(225, 27, 34, 0.20);
+            }
+
+            .service-header {
+                position: relative;
+                height: 180px;
+                background: var(--foreground);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .service-header .dot-pattern {
+                opacity: 0.4;
+            }
+
+            .service-header::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -20%;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(225, 27, 34, 0.25), transparent 70%);
+                filter: blur(40px);
+            }
+
+            .service-header i {
+                font-size: 70px;
+                color: #FFF;
+                position: relative;
+                z-index: 2;
+                transition: transform 0.4s var(--ease-out);
+            }
+
+            .service-card:hover .service-header i {
+                transform: scale(1.1) rotate(-6deg);
+            }
+
+            .service-badge {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                background: var(--gradient-accent);
+                color: #FFF;
+                font-family: var(--font-mono);
+                font-size: 10px;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                padding: 5px 12px;
+                border-radius: 999px;
+                box-shadow: var(--shadow-accent);
+                z-index: 3;
+            }
+
+            .service-body {
+                padding: 26px 24px 28px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .service-body h3 {
+                font-family: var(--font-display);
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--foreground);
+                margin-bottom: 10px;
+                letter-spacing: -0.01em;
+            }
+
+            .service-body p {
+                font-size: 14.5px;
+                color: var(--muted-foreground);
+                line-height: 1.7;
+                margin-bottom: 20px;
+                flex: 1;
+            }
+
+            .service-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-bottom: 22px;
+            }
+
+            .service-tag {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                font-family: var(--font-mono);
+                font-size: 10.5px;
+                font-weight: 500;
+                color: var(--muted-foreground);
+                background: var(--muted);
+                padding: 5px 11px;
+                border-radius: 999px;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+            }
+
+            .service-tag i {
+                color: var(--accent);
+                font-size: 8px;
+            }
+
+            .service-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                color: var(--accent);
+                font-weight: 600;
+                font-size: 14px;
+                transition: gap 0.2s var(--ease-out);
+            }
+
+            .service-link i {
+                transition: transform 0.2s var(--ease-out);
+            }
+
+            .service-card:hover .service-link i {
+                transform: translateX(-4px);
+            }
+
+            /* ============================================================
+            PROCESS / HOW IT WORKS
+            ============================================================ */
+            .process {
+                background: var(--background);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .process .radial-glow {
+                top: -300px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .process-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 2;
+            }
+
+            .process-step {
+                position: relative;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 18px;
+                padding: 30px 24px;
+                transition: all 0.3s var(--ease-out);
+            }
+
+            .process-step:hover {
+                border-color: rgba(225, 27, 34, 0.25);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-4px);
+            }
+
+            .process-num {
+                font-family: var(--font-display);
+                font-size: 36px;
+                font-weight: 600;
+                color: transparent;
+                -webkit-text-stroke: 1.5px rgba(225, 27, 34, 0.4);
+                line-height: 1;
+                margin-bottom: 22px;
+                display: block;
+            }
+
+            .process-step h3 {
+                font-family: var(--font-display);
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--foreground);
+                margin-bottom: 10px;
+            }
+
+            .process-step p {
+                font-size: 14px;
+                color: var(--muted-foreground);
+                line-height: 1.7;
+            }
+
+            .process-step:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -16px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: var(--accent);
+                transform: translateY(-50%);
+                box-shadow: 0 0 0 4px var(--background);
+                z-index: 2;
+            }
+
+            /* ============================================================
+            STATS (INVERTED SECTION — Brand Black)
+            ============================================================ */
+            .stats {
+                background: var(--foreground);
+                color: #FFF;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .stats .dot-pattern {
+                opacity: 0.5;
+            }
+
+            .stats .radial-glow {
+                top: -200px;
+                right: -200px;
+                background: radial-gradient(circle, rgba(225, 27, 34, 0.18) 0%, transparent 70%);
+            }
+
+            .stats .radial-glow.glow-2 {
+                top: auto;
+                right: auto;
+                bottom: -200px;
+                left: -200px;
+            }
+
+            .stats-header {
+                text-align: center;
+                max-width: 700px;
+                margin: 0 auto 60px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .stats-header .section-label {
+                border-color: rgba(225, 27, 34, 0.40);
+                background: rgba(225, 27, 34, 0.10);
+            }
+
+            .stats-header h2 {
+                font-family: var(--font-display);
+                font-size: clamp(2rem, 4vw, 3rem);
+                font-weight: 600;
+                color: #FFF;
+                line-height: 1.15;
+                letter-spacing: -0.015em;
+            }
+
+            .stats-grid {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0;
+                position: relative;
+                z-index: 2;
+            }
+
+            .stat-item {
+                text-align: center;
+                padding: 30px 22px;
+                position: relative;
+            }
+
+            .stat-item:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 20%;
+                bottom: 20%;
+                left: 0;
+                width: 1px;
+                background: rgba(255, 255, 255, 0.10);
+            }
+
+            .stat-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 12px;
+                background: rgba(225, 27, 34, 0.15);
+                color: var(--accent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                margin: 0 auto 20px;
+            }
+
+            .stat-num {
+                font-family: var(--font-display);
+                font-size: clamp(2.5rem, 4vw, 3.25rem);
+                font-weight: 600;
+                color: #FFF;
+                line-height: 1;
+                margin-bottom: 10px;
+                letter-spacing: -0.02em;
+            }
+
+            .stat-label {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.55);
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+            }
+
+            /* ============================================================
+            CONTACT
+            ============================================================ */
+            .contact {
+                background: var(--background);
+                position: relative;
+            }
+
+            .contact .radial-glow {
+                top: 20%;
+                left: -300px;
+            }
+
+            .contact-grid {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .contact-info .section-title {
+                text-align: right;
+                margin-bottom: 20px;
+            }
+
+            .contact-info > p {
+                font-size: 16.5px;
+                color: var(--muted-foreground);
+                line-height: 1.75;
+                margin-bottom: 36px;
+            }
+
+            .contact-cards {
+                display: grid;
+                gap: 14px;
+            }
+
+            .contact-card {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                padding: 20px 22px;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 14px;
+                transition: all 0.3s var(--ease-out);
+            }
+
+            .contact-card:hover {
+                transform: translateX(-4px);
+                border-color: rgba(225, 27, 34, 0.25);
+                box-shadow: var(--shadow-md);
+            }
+
+            .contact-card:hover .contact-card-icon {
+                background: var(--gradient-accent);
+                color: #FFF;
+            }
+
+            .contact-card-icon {
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                border-radius: 12px;
+                background: rgba(225, 27, 34, 0.10);
+                color: var(--accent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                transition: all 0.3s var(--ease-out);
+            }
+
+            .contact-card .meta {
+                font-family: var(--font-mono);
+                font-size: 10px;
+                color: var(--muted-foreground);
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                margin-bottom: 4px;
+            }
+
+            .contact-card .value {
+                font-family: var(--font-display);
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--foreground);
+            }
+
+            .contact-card a.value {
+                transition: color 0.2s var(--ease-out);
+            }
+
+            .contact-card a.value:hover {
+                color: var(--accent);
+            }
+
+            /* Form */
+            .contact-form {
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                padding: 38px 34px;
+                box-shadow: var(--shadow-lg);
+                position: relative;
+            }
+
+            .contact-form::before {
+                content: '';
+                position: absolute;
+                top: -1px;
+                right: 24px;
+                left: 24px;
+                height: 2px;
+                background: var(--gradient-accent-horiz);
+                border-radius: 999px;
+            }
+
+            .contact-form h3 {
+                font-family: var(--font-display);
+                font-size: 24px;
+                font-weight: 600;
+                color: var(--foreground);
+                margin-bottom: 8px;
+                letter-spacing: -0.01em;
+            }
+
+            .contact-form .form-sub {
+                font-size: 14px;
+                color: var(--muted-foreground);
+                margin-bottom: 28px;
+            }
+
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .form-group {
+                margin-bottom: 18px;
+            }
+
+            .form-group label {
+                display: block;
+                font-family: var(--font-mono);
+                font-size: 10.5px;
+                font-weight: 500;
+                color: var(--muted-foreground);
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                margin-bottom: 8px;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 13px 16px;
+                border: 1px solid var(--border);
+                border-radius: 11px;
+                font-family: var(--font-body);
+                font-size: 15px;
+                color: var(--foreground);
+                background: var(--background);
+                transition: all 0.2s var(--ease-out);
+                min-height: 48px;
+            }
+
+            .form-group textarea {
+                resize: vertical;
+                min-height: 130px;
+                line-height: 1.6;
+            }
+
+            .form-group input::placeholder,
+            .form-group textarea::placeholder {
+                color: rgba(85, 85, 85, 0.5);
+            }
+
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                outline: none;
+                border-color: var(--accent);
+                background: var(--card);
+                box-shadow: 0 0 0 3px rgba(225, 27, 34, 0.10);
+            }
+
+            .form-submit {
+                width: 100%;
+                padding: 16px;
+                background: var(--gradient-accent-horiz);
+                color: #FFF;
+                border-radius: 12px;
+                font-family: var(--font-body);
+                font-size: 15px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                transition: all 0.2s var(--ease-out);
+                box-shadow: var(--shadow-sm);
+                margin-top: 6px;
+                min-height: 54px;
+            }
+
+            .form-submit:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-accent-lg);
+                filter: brightness(1.05);
+            }
+
+            .form-submit:active {
+                transform: translateY(0) scale(0.98);
+            }
+
+            .form-submit i {
+                transition: transform 0.2s var(--ease-out);
+            }
+
+            .form-submit:hover i {
+                transform: translateX(-4px);
+            }
+
+            /* ============================================================
+            MAP
+            ============================================================ */
+            .map-section {
+                padding: 0;
+                position: relative;
+                background: var(--foreground);
+            }
+
+            .map-wrap {
+                width: 100%;
+                height: 440px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .map-wrap iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                filter: grayscale(0.4) contrast(1.05);
+            }
+
+            .map-card {
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                padding: 20px 22px;
+                box-shadow: var(--shadow-xl);
+                max-width: 280px;
+                z-index: 5;
+            }
+
+            .map-card .label {
+                font-family: var(--font-mono);
+                font-size: 10px;
+                color: var(--accent);
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .map-card .label::before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--accent);
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+            .map-card h4 {
+                font-family: var(--font-display);
+                font-size: 17px;
+                font-weight: 600;
+                color: var(--foreground);
+                margin-bottom: 6px;
+            }
+
+            .map-card p {
+                font-size: 13px;
+                color: var(--muted-foreground);
+                line-height: 1.6;
+            }
+
+            /* ============================================================
+            FINAL CTA
+            ============================================================ */
+            .cta-section {
+                background: var(--foreground);
+                color: #FFF;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .cta-section .dot-pattern {
+                opacity: 0.6;
+            }
+
+            .cta-section .radial-glow {
+                top: -100px;
+                right: -100px;
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(circle, rgba(225, 27, 34, 0.25) 0%, transparent 70%);
+            }
+
+            .cta-content {
+                max-width: 760px;
+                margin: 0 auto;
+                text-align: center;
+                position: relative;
+                z-index: 2;
+            }
+
+            .cta-content .section-label {
+                border-color: rgba(225, 27, 34, 0.40);
+                background: rgba(225, 27, 34, 0.10);
+            }
+
+            .cta-content h2 {
+                font-family: var(--font-display);
+                font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+                font-weight: 600;
+                color: #FFF;
+                line-height: 1.15;
+                letter-spacing: -0.02em;
+                margin-bottom: 22px;
+            }
+
+            .cta-content p {
+                font-size: 17px;
+                color: rgba(255, 255, 255, 0.70);
+                line-height: 1.75;
+                margin-bottom: 38px;
+                max-width: 560px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-buttons {
+                display: flex;
+                gap: 14px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .cta-buttons .btn-secondary {
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(255, 255, 255, 0.15);
+                color: #FFF;
+            }
+
+            .cta-buttons .btn-secondary:hover {
+                background: rgba(255, 255, 255, 0.12);
+                border-color: rgba(255, 255, 255, 0.30);
+            }
+
+            /* ============================================================
+            FOOTER
+            ============================================================ */
+            footer {
+                background: #0A0A0A;
+                color: rgba(255, 255, 255, 0.65);
+                padding: 80px 24px 28px;
+                border-top: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .footer-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr 1.3fr;
+                gap: 44px;
+                margin-bottom: 50px;
+            }
+
+            .footer-section h3 {
+                font-family: var(--font-display);
+                font-size: 16px;
+                font-weight: 600;
+                color: #FFF;
+                margin-bottom: 22px;
+                letter-spacing: -0.005em;
+                position: relative;
+                padding-bottom: 12px;
+            }
+
+            .footer-section h3::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 28px;
+                height: 2px;
+                background: var(--accent);
+                border-radius: 999px;
+            }
+
+            .footer-brand {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 20px;
+            }
+
+            .footer-logo {
+                width: 52px;
+                height: 52px;
+                background: var(--card);
+                border-radius: 12px;
+                padding: 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .footer-logo img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .footer-brand-text {
+                font-family: var(--font-display);
+                font-size: 18px;
+                font-weight: 600;
+                color: #FFF;
+            }
+
+            .footer-brand-text .sub {
+                display: block;
+                font-family: var(--font-mono);
+                font-size: 10px;
+                font-weight: 400;
+                color: rgba(255, 255, 255, 0.50);
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                margin-top: 4px;
+            }
+
+            .footer-about p {
+                font-size: 14px;
+                line-height: 1.8;
+                margin-bottom: 22px;
+                color: rgba(255, 255, 255, 0.60);
+            }
+
+            .footer-social {
+                display: flex;
+                gap: 10px;
+            }
+
+            .footer-social a {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #FFF;
+                font-size: 15px;
+                transition: all 0.2s var(--ease-out);
+            }
+
+            .footer-social a:hover {
+                background: var(--accent);
+                border-color: var(--accent);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-accent);
+            }
+
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+
+            .footer-links a {
+                color: rgba(255, 255, 255, 0.60);
+                font-size: 14px;
+                transition: all 0.2s var(--ease-out);
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .footer-links a i {
+                font-size: 9px;
+                color: var(--accent);
+                transition: transform 0.2s var(--ease-out);
+            }
+
+            .footer-links a:hover {
+                color: #FFF;
+            }
+
+            .footer-links a:hover i {
+                transform: translateX(-3px);
+            }
+
+            .footer-contact-item {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 14px;
+                font-size: 13.5px;
+                align-items: flex-start;
+            }
+
+            .footer-contact-item i {
+                color: var(--accent);
+                font-size: 14px;
+                margin-top: 3px;
+                min-width: 16px;
+            }
+
+            .footer-contact-item a,
+            .footer-contact-item span {
+                color: rgba(255, 255, 255, 0.65);
+                transition: color 0.2s var(--ease-out);
+                line-height: 1.6;
+            }
+
+            .footer-contact-item a:hover {
+                color: var(--accent);
+            }
+
+            .footer-bottom {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-top: 28px;
+                border-top: 1px solid rgba(255, 255, 255, 0.06);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 14px;
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.45);
+            }
+
+            .footer-bottom strong {
+                color: var(--accent);
+                font-weight: 600;
+            }
+
+            .footer-bottom .meta {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+            }
+
+            /* ============================================================
+            FLOATING BUTTONS
+            ============================================================ */
+            .whatsapp-float {
+                position: fixed;
+                bottom: 24px;
+                left: 24px;
+                z-index: 90;
+            }
+
+            .whatsapp-float a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 56px;
+                height: 56px;
+                background: #25D366;
+                color: #FFF;
+                border-radius: 16px;
+                font-size: 26px;
+                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.40);
+                transition: all 0.2s var(--ease-out);
+            }
+
+            .whatsapp-float a::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 16px;
+                background: #25D366;
+                opacity: 0.4;
+                animation: pulseRing 2.5s ease-out infinite;
+                z-index: -1;
+            }
+
+            @keyframes pulseRing {
+                0% { transform: scale(1); opacity: 0.5; }
+                100% { transform: scale(1.5); opacity: 0; }
+            }
+
+            .whatsapp-float a:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55);
+            }
+
+            .scroll-top {
+                position: fixed;
+                bottom: 24px;
+                right: 24px;
+                width: 48px;
+                height: 48px;
+                background: var(--foreground);
+                color: #FFF;
+                border-radius: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                cursor: pointer;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s var(--ease-out);
+                z-index: 90;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .scroll-top.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .scroll-top:hover {
+                background: var(--accent);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-accent-lg);
+            }
+
+            /* ============================================================
+            RESPONSIVE
+            ============================================================ */
+            @media (max-width: 1100px) {
+                .hero-grid,
+                .about-grid,
+                .contact-grid {
+                    grid-template-columns: 1fr;
+                    gap: 60px;
+                }
+
+                .hero-visual {
+                    order: -1;
+                    max-width: 440px;
+                }
+
+                .hero-content {
+                    text-align: center;
+                }
+
+                .hero-description {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .hero-buttons,
+                .hero-meta {
+                    justify-content: center;
+                }
+
+                .about-content .section-title,
+                .contact-info .section-title {
+                    text-align: center;
+                }
+
+                .process-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 24px;
+                }
+
+                .process-step:not(:last-child)::after {
+                    display: none;
+                }
+
+                .stats-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .stat-item:nth-child(2)::after {
+                    display: none;
+                }
+
+                .footer-content {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 40px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .top-bar {
+                    display: none;
+                }
+
+                nav {
+                    padding: 14px 20px;
+                }
+
+                .nav-links {
+                    position: fixed;
+                    top: 0;
+                    right: -100%;
+                    width: 84%;
+                    max-width: 320px;
+                    height: 100vh;
+                    background: var(--card);
+                    flex-direction: column;
+                    gap: 0;
+                    padding: 90px 22px 30px;
+                    box-shadow: -10px 0 40px rgba(17, 17, 17, 0.12);
+                    transition: right 0.4s var(--ease-out);
+                    align-items: stretch;
+                    z-index: 99;
+                }
+
+                .nav-links.active {
+                    right: 0;
+                }
+
+                .nav-links li {
+                    width: 100%;
+                    border-bottom: 1px solid var(--border);
+                }
+
+                .nav-links a {
+                    width: 100%;
+                    padding: 16px 18px;
+                    border-radius: 10px;
+                    display: block;
+                    text-align: right;
+                    font-size: 15px;
+                }
+
+                .nav-cta {
+                    margin: 16px 0 0;
+                }
+
+                .nav-cta .btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+
+                .menu-toggle {
+                    display: flex;
+                }
+
+                .hero {
+                    padding: 50px 20px 80px;
+                }
+
+                .hero-visual {
+                    max-width: 360px;
+                }
+
+                .hero-orb {
+                    width: 150px;
+                    height: 150px;
+                    font-size: 56px;
+                }
+
+                .floating-card {
+                    padding: 12px 14px;
+                }
+
+                .floating-card .icon {
+                    width: 34px;
+                    height: 34px;
+                    font-size: 14px;
+                }
+
+                .floating-card .text .value {
+                    font-size: 13px;
+                }
+
+                section {
+                    padding: 80px 20px;
+                }
+
+                .section-header {
+                    margin-bottom: 50px;
+                }
+
+                .form-row {
+                    grid-template-columns: 1fr;
+                }
+
+                .contact-form {
+                    padding: 30px 24px;
+                }
+
+                .map-card {
+                    top: 20px;
+                    right: 20px;
+                    left: 20px;
+                    max-width: none;
+                    padding: 16px 18px;
+                }
+
+                .map-wrap {
+                    height: 380px;
+                }
+
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    gap: 36px;
+                    text-align: center;
+                }
+
+                .footer-section h3::after {
+                    right: 50%;
+                    transform: translateX(50%);
+                }
+
+                .footer-brand,
+                .footer-social {
+                    justify-content: center;
+                }
+
+                .footer-links a {
+                    justify-content: center;
+                }
+
+                .footer-contact-item {
+                    justify-content: center;
+                    text-align: right;
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .whatsapp-float {
+                    bottom: 20px;
+                    left: 20px;
+                }
+
+                .whatsapp-float a {
+                    width: 50px;
+                    height: 50px;
+                    font-size: 22px;
+                }
+
+                .scroll-top {
+                    bottom: 84px;
+                    right: 20px;
+                    width: 44px;
+                    height: 44px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero-buttons {
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                .btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+
+                .hero-meta {
+                    gap: 24px;
+                }
+
+                .process-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .stat-item::after {
+                    display: none !important;
+                }
+
+                .feature-card,
+                .service-body {
+                    padding: 26px 22px;
+                }
+
+                .floating-card.fc-1 { right: -4%; }
+                .floating-card.fc-2 { left: -6%; }
+
+                .cta-buttons {
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                .cta-buttons .btn {
+                    width: 100%;
+                }
+            }
+
+            /* Prevent iOS zoom */
+            @media screen and (max-width: 768px) {
+                input, textarea, select {
+                    font-size: 16px !important;
+                }
+            }
+
+            /* Reduced motion */
+            @media (prefers-reduced-motion: reduce) {
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                    scroll-behavior: auto !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- ========== LOADER ========== -->
+        <div class="loader" id="loader">
+            <div class="loader-logo">
+                <img src="logo.png" alt="سلسلة الإمداد">
+            </div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+            <div class="loader-text">سلسلة الإمداد</div>
+            <div class="loader-subtext">Loading · جاري التحميل</div>
+        </div>
+
+        <!-- ========== WHATSAPP ========== -->
+        <div class="whatsapp-float">
+            <a href="https://wa.me/218912141471" target="_blank" aria-label="واتساب">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+
+        <!-- ========== SCROLL TOP ========== -->
+        <button class="scroll-top" id="scrollTop" aria-label="العودة للأعلى">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- ========== TOP BAR ========== -->
+        <div class="top-bar">
+            <div class="top-bar-content">
+                <div class="top-bar-info">
+                    <div class="top-bar-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>0912141471</span>
+                    </div>
+                    <div class="top-bar-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@selselatalemdad.com.ly</span>
+                    </div>
+                    <div class="top-bar-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>زليتن — ليبيا</span>
+                    </div>
+                </div>
+                <div class="top-bar-social">
+                    <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/218912141471" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== HEADER ========== -->
+        <header id="header">
+            <nav>
+                <a href="#home" class="logo-container">
+                    <div class="logo-mark">
+                        <img src="logo.png" alt="شعار سلسلة الإمداد">
+                    </div>
+                    <div class="logo-text">
+                        <h1>سلسلة الإمداد</h1>
+                        <span>PVC × Aluminum</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">الرئيسية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#process">آلية العمل</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                    <li class="nav-cta">
+                        <a href="#contact" class="btn btn-primary btn-sm">
+                            طلب عرض سعر
+                            <i class="fas fa-arrow-left arrow"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </header>
+
+        <!-- ========== HERO ========== -->
+        <section class="hero" id="home">
+            <div class="radial-glow glow-1"></div>
+            <div class="radial-glow glow-2"></div>
+
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="section-label">
+                        <span class="dot"></span>
+                        <span>صناعة ليبية · زليتن</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        حلولٌ متكاملة لصناعة
+                        <span class="highlight"><span class="gradient-text">البي في سي</span></span>
+                        والألمونيوم
+                    </h1>
+
+                    <p class="hero-description">
+                        شركة سلسلة الإمداد تُقدّم تصنيعاً احترافياً للنوافذ والأبواب ومقاطع
+                        الـ PVC والألمونيوم بأعلى معايير الجودة الأوروبية. خبرة، دقة، وحرفية
+                        في كل تفصيل من تفاصيل مشروعك.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary">
+                            تصفّح خدماتنا
+                            <i class="fas fa-arrow-left arrow"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-phone-alt"></i>
+                            اتصل بنا الآن
+                        </a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <div class="hero-meta-item">
+                            <div class="num"><span class="gradient-text">+15</span></div>
+                            <div class="label">سنة خبرة</div>
+                        </div>
+                        <div class="hero-meta-item">
+                            <div class="num"><span class="gradient-text">+800</span></div>
+                            <div class="label">مشروع منجز</div>
+                        </div>
+                        <div class="hero-meta-item">
+                            <div class="num"><span class="gradient-text">100%</span></div>
+                            <div class="label">جودة مضمونة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-visual-bg"></div>
+                    <div class="hero-ring"></div>
+
+                    <div class="hero-corner-accent">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+
+                    <div class="hero-orb">
+                        <i class="fas fa-industry"></i>
+                    </div>
+
+                    <div class="floating-card fc-1">
+                        <div class="icon"><i class="fas fa-door-open"></i></div>
+                        <div class="text">
+                            <div class="label">PVC</div>
+                            <div class="value">نوافذ وأبواب</div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card fc-2">
+                        <div class="icon"><i class="fas fa-cube"></i></div>
+                        <div class="text">
+                            <div class="label">Aluminum</div>
+                            <div class="value">مقاطع احترافية</div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card fc-3">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="text">
+                            <div class="label">جودة</div>
+                            <div class="value">ضمان شامل</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-dot-grid">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FEATURES ========== -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">
+                        <span class="dot"></span>
+                        <span>لماذا نحن</span>
+                    </div>
+                    <h2 class="section-title">
+                        مميزات تجعلنا <span class="gradient-text">الخيار الأول</span>
+                    </h2>
+                    <p class="section-description">
+                        نلتزم بأعلى المعايير في كل خطوة من خطوات التصنيع — من اختيار الخامات إلى التركيب النهائي
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-award"></i></div>
+                        <h3>جودة أوروبية</h3>
+                        <p>نستخدم خامات ومقاطع من أفضل المصانع الأوروبية المعتمدة عالمياً لضمان أعلى مستويات الأداء والمتانة</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-ruler-combined"></i></div>
+                        <h3>دقة في التصنيع</h3>
+                        <p>ماكينات CNC حديثة وفريق فني متخصص يضمنون دقة القياسات والتفاصيل في كل قطعة نصنّعها</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-volume-mute"></i></div>
+                        <h3>عزل صوتي وحراري</h3>
+                        <p>منتجاتنا توفّر عزلاً صوتياً وحرارياً متفوّقاً يحافظ على راحة منزلك ويُقلّل استهلاك الطاقة</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                        <h3>تصاميم متنوّعة</h3>
+                        <p>تشكيلة واسعة من الألوان والتصاميم المخصّصة لتُلائم ذوقك المعماري وطراز مشروعك</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-tools"></i></div>
+                        <h3>تركيب احترافي</h3>
+                        <p>فريق تركيب مدرّب على أعلى مستوى يضمن لك تنفيذاً متقناً وسريعاً مع التزام كامل بالمواعيد</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>ضمان حقيقي</h3>
+                        <p>نُقدّم ضماناً شاملاً على منتجاتنا وخدماتنا، لأننا نثق بجودة ما نصنع ونحرص على رضا عملائنا</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ABOUT ========== -->
+        <section class="about" id="about">
+            <div class="radial-glow"></div>
+
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content reveal">
+                        <div class="section-label">
+                            <span class="dot"></span>
+                            <span>من نحن</span>
+                        </div>
+                        <h2 class="section-title">
+                            شريكك الموثوق في <span class="gradient-text">صناعة الواجهات</span>
+                        </h2>
+                        <p>
+                            شركة سلسلة الإمداد هي شركة ليبية متخصّصة في تصنيع وتركيب نوافذ وأبواب
+                            البي في سي والألمونيوم، تأسّست في مدينة زليتن وامتدّت خبرتها لتشمل
+                            مختلف مناطق ليبيا.
+                        </p>
+                        <p>
+                            نعمل بفريقٍ متخصّص من المهندسين والفنيين، ونعتمد على أحدث ماكينات
+                            التصنيع الأوروبية، لنقدّم لعملائنا منتجاً يجمع بين الأناقة، المتانة،
+                            والكفاءة في الأداء.
+                        </p>
+
+                        <div class="about-checks">
+                            <div class="about-check">
+                                <div class="about-check-icon"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <h4>خامات أصلية معتمدة</h4>
+                                    <p>مقاطع أوروبية أصلية بشهادات جودة دولية</p>
+                                </div>
+                            </div>
+                            <div class="about-check">
+                                <div class="about-check-icon"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <h4>تنفيذ في الوقت المحدّد</h4>
+                                    <p>التزام صارم بمواعيد التسليم المتّفق عليها</p>
+                                </div>
+                            </div>
+                            <div class="about-check">
+                                <div class="about-check-icon"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <h4>أسعار تنافسية</h4>
+                                    <p>جودة عالية بأسعار مدروسة تناسب كافة المشاريع</p>
+                                </div>
+                            </div>
+                            <div class="about-check">
+                                <div class="about-check-icon"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <h4>خدمة ما بعد البيع</h4>
+                                    <p>متابعة دائمة ودعم فني مستمر لعملائنا</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-visual reveal">
+                        <div class="dot-pattern"></div>
+                        <div class="about-visual-tl">
+                            <span>About · 2009</span>
+                        </div>
+                        <div class="about-visual-inner">
+                            <div class="about-visual-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3>صناعة ليبية بمعايير عالمية</h3>
+                            <p>من قلب مدينة زليتن إلى كل أنحاء ليبيا — جودة تستحق الثقة</p>
+                        </div>
+                        <div class="about-visual-corner">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SERVICES ========== -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">
+                        <span class="dot"></span>
+                        <span>خدماتنا</span>
+                    </div>
+                    <h2 class="section-title">
+                        ما <span class="gradient-text">نُقدّمه لك</span>
+                    </h2>
+                    <p class="section-description">
+                        حلول متكاملة من التصميم إلى التركيب — كل ما تحتاجه مشاريعك في مكانٍ واحد
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="service-header">
+                            <div class="dot-pattern"></div>
+                            <span class="service-badge">الأكثر طلباً</span>
+                            <i class="fas fa-window-maximize"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>نوافذ البي في سي</h3>
+                            <p>نوافذ PVC احترافية بعزل حراري وصوتي ممتاز، تصاميم عصرية تُناسب جميع المشاريع السكنية والتجارية</p>
+                            <div class="service-tags">
+                                <span class="service-tag"><i class="fas fa-circle"></i> عزل حراري</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> أوروبي</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> متين</span>
+                            </div>
+                            <a href="#contact" class="service-link">
+                                استفسر الآن <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-header">
+                            <div class="dot-pattern"></div>
+                            <span class="service-badge">احترافي</span>
+                            <i class="fas fa-door-closed"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>أبواب الألمونيوم</h3>
+                            <p>أبواب ألمونيوم بتصاميم أنيقة ومتانة استثنائية، خيارات متعدّدة من الأنظمة السحّابة والمفصّلية</p>
+                            <div class="service-tags">
+                                <span class="service-tag"><i class="fas fa-circle"></i> مقاوم</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> أنيق</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> آمن</span>
+                            </div>
+                            <a href="#contact" class="service-link">
+                                استفسر الآن <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+            </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-header">
+                            <div class="dot-pattern"></div>
+                            <span class="service-badge">حصري</span>
+                            <i class="fas fa-border-all"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>واجهات زجاجية</h3>
+                            <p>واجهات زجاجية متكاملة بأنظمة ألمونيوم متطوّرة، مثالية للمحلات التجارية والمكاتب والمباني الحديثة</p>
+                            <div class="service-tags">
+                                <span class="service-tag"><i class="fas fa-circle"></i> عصري</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> شفّاف</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> فاخر</span>
+                            </div>
+                            <a href="#contact" class="service-link">
+                                استفسر الآن <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-header">
+                            <div class="dot-pattern"></div>
+                            <span class="service-badge">مخصّص</span>
+                            <i class="fas fa-ruler-horizontal"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>مقاطع الألمونيوم</h3>
+                            <p>تشكيلة واسعة من مقاطع الألمونيوم بمختلف الأشكال والمقاسات، نُقدّم حلولاً مخصّصة وفق احتياجات مشروعك</p>
+                            <div class="service-tags">
+                                <span class="service-tag"><i class="fas fa-circle"></i> متنوّع</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> دقيق</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> مخصّص</span>
+                            </div>
+                            <a href="#contact" class="service-link">
+                                استفسر الآن <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-header">
+                            <div class="dot-pattern"></div>
+                            <span class="service-badge">شامل</span>
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>قواطع داخلية</h3>
+                            <p>قواطع ألمونيوم وزجاج للمكاتب والمحلات، حلول عصرية لتقسيم المساحات بأناقة دون فقدان الإضاءة الطبيعية</p>
+                            <div class="service-tags">
+                                <span class="service-tag"><i class="fas fa-circle"></i> عملي</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> أنيق</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> سريع</span>
+                            </div>
+                            <a href="#contact" class="service-link">
+                                استفسر الآن <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-header">
+                            <div class="dot-pattern"></div>
+                            <span class="service-badge">إضافي</span>
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3>صيانة وإصلاح</h3>
+                            <p>خدمات صيانة وإصلاح لجميع منتجات الـ PVC والألمونيوم، فريق فني متخصّص جاهز للتدخّل في أي وقت</p>
+                            <div class="service-tags">
+                                <span class="service-tag"><i class="fas fa-circle"></i> سريع</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> موثوق</span>
+                                <span class="service-tag"><i class="fas fa-circle"></i> ضمان</span>
+                            </div>
+                            <a href="#contact" class="service-link">
+                                استفسر الآن <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PROCESS ========== -->
+        <section class="process" id="process">
+            <div class="radial-glow"></div>
+
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">
+                        <span class="dot"></span>
+                        <span>آلية العمل</span>
+                    </div>
+                    <h2 class="section-title">
+                        كيف <span class="gradient-text">نعمل معك</span>
+                    </h2>
+                    <p class="section-description">
+                        رحلتك معنا من أوّل اتصال حتى تسليم المشروع — خطوات واضحة وشفّافة
+                    </p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-step reveal">
+                        <span class="process-num">01</span>
+                        <h3>الاستشارة المجانية</h3>
+                        <p>تواصل معنا وسنُقدّم لك استشارة فنية مجانية لفهم احتياجاتك وتقديم أفضل الحلول</p>
+                    </div>
+
+                    <div class="process-step reveal">
+                        <span class="process-num">02</span>
+                        <h3>القياس والتصميم</h3>
+                        <p>زيارة الموقع لأخذ القياسات الدقيقة وتصميم الحلول المناسبة لمشروعك</p>
+                    </div>
+
+                    <div class="process-step reveal">
+                        <span class="process-num">03</span>
+                        <h3>التصنيع الدقيق</h3>
+                        <p>تصنيع المنتجات في مصنعنا باستخدام أحدث الماكينات وبأعلى معايير الجودة</p>
+                    </div>
+
+                    <div class="process-step reveal">
+                        <span class="process-num">04</span>
+                        <h3>التركيب والضمان</h3>
+                        <p>تركيب احترافي من قِبَل فريقنا المختصّ مع ضمان شامل وخدمة ما بعد البيع</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== STATS (INVERTED) ========== -->
+        <section class="stats">
+            <div class="dot-pattern"></div>
+            <div class="radial-glow glow-1"></div>
+            <div class="radial-glow glow-2"></div>
+
+            <div class="container">
+                <div class="stats-header reveal">
+                    <div class="section-label">
+                        <span class="dot"></span>
+                        <span>أرقامنا تتحدّث</span>
+                    </div>
+                    <h2>إنجازات حقيقية، <span class="gradient-text">ثقة متراكمة</span></h2>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item reveal">
+                        <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="stat-num" data-target="15">0</div>
+                        <div class="stat-label">سنة من الخبرة</div>
+                    </div>
+
+                    <div class="stat-item reveal">
+                        <div class="stat-icon"><i class="fas fa-building"></i></div>
+                        <div class="stat-num" data-target="800">0</div>
+                        <div class="stat-label">مشروع منجز</div>
+                    </div>
+
+                    <div class="stat-item reveal">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-num" data-target="500">0</div>
+                        <div class="stat-label">عميل سعيد</div>
+                    </div>
+
+                    <div class="stat-item reveal">
+                        <div class="stat-icon"><i class="fas fa-medal"></i></div>
+                        <div class="stat-num" data-target="100">0</div>
+                        <div class="stat-label">معدّل الجودة %</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT ========== -->
+        <section class="contact" id="contact">
+            <div class="radial-glow"></div>
+
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-label">
+                        <span class="dot"></span>
+                        <span>تواصل معنا</span>
+                    </div>
+                    <h2 class="section-title">
+                        لنُنفّذ مشروعك <span class="gradient-text">معاً</span>
+                    </h2>
+                    <p class="section-description">
+                        تواصل معنا اليوم للحصول على عرض سعر مخصّص أو استشارة فنية مجانية
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <div class="contact-cards">
+                            <div class="contact-card">
+                                <div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <div class="meta">اتصل بنا</div>
+                                    <a href="tel:+218912141471" class="value">0912141471</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-card-icon"><i class="fab fa-whatsapp"></i></div>
+                                <div>
+                                    <div class="meta">واتساب</div>
+                                    <a href="https://wa.me/218912141471" target="_blank" class="value">0912141471</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <div class="meta">البريد الإلكتروني</div>
+                                    <a href="mailto:info@selselatalemdad.com.ly" class="value">info@selselatalemdad.com.ly</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <div class="meta">العنوان</div>
+                                    <div class="value">زليتن — ليبيا</div>
+                                </div>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+                                <div>
+                                    <div class="meta">ساعات العمل</div>
+                                    <div class="value">السبت - الخميس · 8 ص - 6 م</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form reveal">
+                        <h3>أرسل لنا رسالة</h3>
+                        <p class="form-sub">سنرد عليك في أقرب وقت ممكن</p>
+
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">الاسم الكامل *</label>
+                                    <input type="text" id="name" name="name" required placeholder="أدخل اسمك">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">رقم الهاتف *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="091xxxxxxx">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">البريد الإلكتروني</label>
+                                <input type="email" id="email" name="email" placeholder="example@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service">نوع الخدمة</label>
+                                <select id="service" name="service">
+                                    <option value="">اختر الخدمة المطلوبة</option>
+                                    <option value="نوافذ PVC">نوافذ بي في سي</option>
+                                    <option value="أبواب ألمونيوم">أبواب ألمونيوم</option>
+                                    <option value="واجهات زجاجية">واجهات زجاجية</option>
+                                    <option value="مقاطع ألمونيوم">مقاطع ألمونيوم</option>
+                                    <option value="قواطع داخلية">قواطع داخلية</option>
+                                    <option value="صيانة">صيانة وإصلاح</option>
+                                    <option value="استشارة">استشارة فنية</option>
+                                    <option value="آخر">طلب آخر</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">تفاصيل طلبك *</label>
+                                <textarea id="message" name="message" required placeholder="اكتب تفاصيل مشروعك أو استفسارك..."></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit">
+                                إرسال الرسالة
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== MAP ========== -->
+        <section class="map-section">
+            <div class="map-wrap">
+                <div class="map-card">
+                    <div class="label">موقعنا</div>
+                    <h4>زليتن — ليبيا</h4>
+                    <p>تفضّل بزيارتنا في مقرّ الشركة، أو تواصل معنا لتحديد موعد</p>
+                </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3365.7379983805035!2d14.634574925320225!3d32.47969889912272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDI4JzQ2LjkiTiAxNMKwMzcnNTUuMiJF!5e0!3m2!1sar!2sly!4v1779550331232!5m2!1sar!2sly" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <!-- ========== FINAL CTA ========== -->
+        <section class="cta-section">
+            <div class="dot-pattern"></div>
+            <div class="radial-glow"></div>
+
+            <div class="container">
+                <div class="cta-content reveal">
+                    <div class="section-label">
+                        <span class="dot"></span>
+                        <span>جاهز للبدء؟</span>
+                    </div>
+                    <h2>دع مشروعك يبدأ <span class="gradient-text">من هنا</span></h2>
+                    <p>
+                        سواء كان لديك مشروع سكني، تجاري، أو صناعي — فريقنا جاهز لتحويل
+                        رؤيتك إلى واقع بأعلى مستويات الجودة والاحترافية.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/218912141471" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            تواصل عبر واتساب
+                        </a>
+                        <a href="tel:+218912141471" class="btn btn-secondary">
+                            <i class="fas fa-phone-alt"></i>
+                            اتصل الآن — 0912141471
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section footer-about">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="logo.png" alt="سلسلة الإمداد">
+                        </div>
+                        <div class="footer-brand-text">
+                            سلسلة الإمداد
+                            <span class="sub">PVC × Aluminum</span>
+                        </div>
+                    </div>
+                    <p>
+                        شركة ليبية رائدة في تصنيع وتركيب نوافذ وأبواب البي في سي والألمونيوم،
+                        بخبرة تمتدّ لأكثر من 15 عاماً في خدمة عملائنا في مختلف أنحاء ليبيا.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/218912141471" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:info@selselatalemdad.com.ly" aria-label="البريد"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> خدماتنا</a></li>
+                        <li><a href="#process"><i class="fas fa-chevron-left"></i> آلية العمل</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> نوافذ PVC</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> أبواب ألمونيوم</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> واجهات زجاجية</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> مقاطع ألمونيوم</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> صيانة وإصلاح</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>معلومات الاتصال</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+218912141471">0912141471</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/218912141471" target="_blank">واتساب: 0912141471</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@selselatalemdad.com.ly">info@selselatalemdad.com.ly</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>زليتن — ليبيا</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>السبت - الخميس: 8 ص - 6 م</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>شركة سلسلة الإمداد</strong> لصناعة البي في سي والألمونيوم. جميع الحقوق محفوظة.</p>
+                <div class="meta">Made in Zliten · Libya</div>
+            </div>
+        </footer>
+
+        <!-- ========== JAVASCRIPT ========== -->
+        <script>
+            // ========== LOADER ==========
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    document.getElementById('loader').classList.add('hidden');
+                    document.body.classList.add('loaded');
+                }, 700);
+            });
+
+            // Fallback
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                document.body.classList.add('loaded');
+            }, 3500);
+
+            // ========== MOBILE MENU ==========
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+
+            // ========== HEADER SCROLL ==========
+            const header = document.getElementById('header');
+            const scrollTopBtn = document.getElementById('scrollTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                if (window.scrollY > 400) {
+                    scrollTopBtn.classList.add('active');
+                } else {
+                    scrollTopBtn.classList.remove('active');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ========== SMOOTH SCROLL ==========
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        const offset = target.offsetTop - 80;
+                        window.scrollTo({ top: offset, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ========== REVEAL ON SCROLL ==========
+            const revealEls = document.querySelectorAll('.reveal');
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, i * 60);
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+            revealEls.forEach(el => revealObserver.observe(el));
+
+            // ========== COUNTER ANIMATION ==========
+            const counters = document.querySelectorAll('.stat-num');
+            let countStarted = false;
+
+            const animateCounter = (el) => {
+                const target = parseInt(el.getAttribute('data-target'));
+                const duration = 2200;
+                const step = target / (duration / 16);
+                let current = 0;
+                const suffix = target === 100 ? '%' : '+';
+
+                const update = () => {
+                    current += step;
+                    if (current < target) {
+                        el.textContent = Math.floor(current).toLocaleString('ar-EG');
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = target.toLocaleString('ar-EG') + suffix;
+                    }
+                };
+                update();
+            };
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !countStarted) {
+                        countStarted = true;
+                        counters.forEach(c => animateCounter(c));
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) statsObserver.observe(statsSection);
+
+            // ========== ACTIVE NAV LINK ==========
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const top = section.offsetTop - 140;
+                    if (window.scrollY >= top) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    const href = item.getAttribute('href');
+                    if (href && href.slice(1) === current) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // ========== CONTACT FORM → WHATSAPP ==========
+            const contactForm = document.getElementById('contactForm');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim() || 'غير متوفر';
+                const service = document.getElementById('service').value || 'استفسار عام';
+                const message = document.getElementById('message').value.trim();
+
+                const whatsappMessage =
+                    `*رسالة جديدة من الموقع — سلسلة الإمداد*%0A%0A` +
+                    `*الاسم:* ${name}%0A` +
+                    `*الهاتف:* ${phone}%0A` +
+                    `*البريد:* ${email}%0A` +
+                    `*الخدمة:* ${service}%0A` +
+                    `*التفاصيل:*%0A${message}`;
+
+                window.open(`https://wa.me/218912141471?text=${whatsappMessage}`, '_blank');
+
+                contactForm.reset();
+                alert('شكراً لتواصلك! سيتم فتح واتساب لإرسال رسالتك.');
+            });
+
+            // ========== PARALLAX (desktop only) ==========
+            if (window.innerWidth > 1024 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                const orb = document.querySelector('.hero-orb');
+                const floatingCards = document.querySelectorAll('.floating-card');
+
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    if (scrolled > 800) return;
+
+                    if (orb) {
+                        orb.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.12}px))`;
+                    }
+
+                    floatingCards.forEach((card, i) => {
+                        const dir = i % 2 === 0 ? 1 : -1;
+                        const baseTransform = card.style.getPropertyValue('--base') || '0';
+                        card.style.setProperty('--parallax', `${scrolled * (0.06 + i * 0.03) * dir}px`);
+                    });
+                });
+            }
+
+            // ========== CONSOLE BRANDING ==========
+            console.log('%c سلسلة الإمداد ', 'background: #E11B22; color: white; font-size: 20px; padding: 10px 16px; font-weight: bold; border-radius: 6px;');
+            console.log('%c PVC × Aluminum · زليتن - ليبيا ', 'background: #111111; color: white; font-size: 12px; padding: 6px 12px; border-radius: 4px; letter-spacing: 1px;');
+        </script>
+
+    </body>
+    </html>
